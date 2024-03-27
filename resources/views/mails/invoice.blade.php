@@ -1,0 +1,1 @@
+<p>You got new invoice! <br/>Look at <a href="{{ $link }}">{{ $link }}</a></p>
