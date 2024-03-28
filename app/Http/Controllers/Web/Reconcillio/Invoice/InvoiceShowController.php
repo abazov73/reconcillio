@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Log;
 
 class InvoiceShowController extends Controller
 {
-    public function __construct(
-        //private readonly BlockServiceInterface $blockService,
-    ) {
-    }
-
     public function __invoke(Invoice $invoice): View
     {
         Log::info("Veiwing invoice #$invoice->number");
