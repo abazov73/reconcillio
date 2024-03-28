@@ -16,7 +16,7 @@ class InvoiceStoreRequest extends FormRequest
         return [
             'number' => 'required|string|min:1|max:100',
             'due_date' => 'nullable|date|after_or_equal:today',
-            'send_date' => 'nullable|date|after_or_equal:due_date',
+            'send_date' => 'nullable|date|after_or_equal:due_date|after_or_equal:today',
         ];
     }
 }
