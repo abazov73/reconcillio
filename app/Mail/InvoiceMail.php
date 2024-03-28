@@ -26,7 +26,7 @@ class InvoiceMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+            from: config('mail.mailers.smtp.from_address'),
             subject: 'You got new invoice!',
         );
     }
