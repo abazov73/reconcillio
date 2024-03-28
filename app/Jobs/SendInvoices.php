@@ -19,14 +19,11 @@ class SendInvoices implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public function __construct(
-    )
-    {
+    ) {
     }
 
     /**
      * Execute the job.
-     *
-     * @return void
      */
     public function handle(): void
     {
@@ -40,18 +37,18 @@ class SendInvoices implements ShouldQueue
                     ->get()
                     ->each(function (Invoice $invoice) {
                         Mail::to(User::query()->first())
-                        ->send(new InvoiceMail(
-                            route('invoices.show', ['invoice' => $invoice->id]),
-                        ));
+                            ->send(new InvoiceMail(
+                                route('invoices.show', ['invoice' => $invoice->id]),
+                            ));
                     });
 
                 Invoice::query()
                     ->where('is_sent', false)
                     ->whereDate('send_date', '<=', now())
                     ->update(['is_sent' => true]);
-            });  
-        } catch (\Exception $e) {   
-            Log::error('Send invoices job failed: ' . $e->getMessage());
+            });
+        } catch (\Exception $e) {
+            Log::error('Send invoices job failed: '.$e->getMessage());
         }
-    } 
+    }
 }

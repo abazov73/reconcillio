@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\Reconcillio\Invoice;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;

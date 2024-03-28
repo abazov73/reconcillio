@@ -11,7 +11,7 @@ class InvoiceCreateController extends Controller
     public function __invoke(): View
     {
         Log::info('Opening invoice creation form');
-        
+
         return view('Reconcillio.Invoices.create');
     }
 }

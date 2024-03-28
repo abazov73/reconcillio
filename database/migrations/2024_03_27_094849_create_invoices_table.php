@@ -14,13 +14,12 @@ return new class extends Migration
         $this->tableName = (new Invoice())->getTable();
     }
 
-
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        if (!Schema::hasTable($this->tableName)) {
+        if (! Schema::hasTable($this->tableName)) {
             Schema::create($this->tableName, function (Blueprint $table) {
                 $table->id();
                 $table->string('number')->min(1)->max(100);

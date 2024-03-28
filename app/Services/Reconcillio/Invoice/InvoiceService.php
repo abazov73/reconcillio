@@ -22,7 +22,7 @@ class InvoiceService implements InvoiceServiceInterface
             $invoice = Invoice::query()->create($data);
             Log::info('Invoice created');
         } catch (Exception $e) {
-            Log::error('Invoice creation error: ' . $e->getMessage());
+            Log::error('Invoice creation error: '.$e->getMessage());
 
             return null;
         }
