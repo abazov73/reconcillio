@@ -28,8 +28,8 @@
                                 <td class="table-text">
                                     <div><a href="{{ route('invoices.show', $invoice) }}">{{ $invoice->number }}</a></div>
                                 </td>
-                                <td class="table-text">{{ $invoice->due_date?->format('d-m-Y') }}</td>
-                                <td class="table-text">{{ $invoice->send_date?->format('d-m-Y') }}</td>
+                                <td class="table-text">{{ $invoice->due_date?->format('d.m.Y') }}</td>
+                                <td class="table-text">{{ $invoice->send_date?->format('d.m.Y') }}</td>
                                 <td class="table-text">{{ $invoice->is_sent ? 'Sent' : 'Awaiting' }}</td>
                             </tr>
                         @endforeach
